@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión - Panel Admin</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #f9f6f2 0%, #e7dacb 100%);
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.96);
+            padding: 40px 32px 32px 32px;
+            border-radius: 20px;
+            box-shadow: 0 12px 32px rgba(172, 142, 120, 0.1), 0 2px 6px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .login-container:hover {
+            box-shadow: 0 18px 48px rgba(172, 142, 120, 0.15), 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .login-avatar {
+            width: 72px;
+            height: 72px;
+            background: #fff8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px auto;
+            box-shadow: 0 4px 12px rgba(172, 142, 120, 0.15);
+            border: 2px solid #f3e7db;
+        }
+
+        .login-avatar i {
+            font-size: 2.2rem;
+            color: #ac8e78;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ac8e78;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #7a5c3e;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input {
+            width: 95%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid #e0d3c3;
+            border-radius: 10px;
+            font-size: 1rem;
+            background-color: #fbf8f5;
+            color: #4B5563;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #ac8e78;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(172, 142, 120, 0.15);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 0.85rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: linear-gradient(90deg, #ac8e78 50%, #f97316 100%);
+            color: white;
+            box-shadow: 0 3px 10px rgba(172, 142, 120, 0.1);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(90deg, #96837a 50%, #ea580c 100%);
+            box-shadow: 0 6px 18px rgba(172, 142, 120, 0.18);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 26px;
+            color: #ac8e78;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #f97316;
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #ea580c;
+            background: #fff8f0;
+            border: 1px solid #f97316;
+            border-radius: 8px;
+            padding: 10px 16px;
+            margin-bottom: 18px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-avatar">
+        <i class="fas fa-user-lock"></i>
+    </div>
+    <h2>Iniciar Sesión</h2>
+
+    <!-- Mensaje de error -->
+    <div id="error-message" class="error-message"></div>
+
+    <!-- Formulario -->
+    <form id="login-form">
+        <div class="form-group">
+            <label for="username" class="form-label">Usuario</label>
+            <input type="text" id="username" name="username" class="form-input" placeholder="Tu usuario" required />
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" id="password" name="password" class="form-input" placeholder="Tu contraseña" required />
+        </div>
+
+        <button type="submit" class="btn-submit">Entrar</button>
+    </form>
+
+    <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver al sitio web</a>
+</div>
+
+<script>
+document.getElementById('login-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+
+    try {
+        const response = await fetch('login-check.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            window.location.href = 'admin-panel.php';
+        } else {
+            document.getElementById('error-message').textContent = result.message;
+            document.getElementById('error-message').style.display = 'block';
+        }
+    } catch (err) {
+        console.error(err);
+        document.getElementById('error-message').textContent = "Error al conectar con el servidor";
+        document.getElementById('error-message').style.display = 'block';
+    }
+});
+</script>
+
+</body>
+</html>

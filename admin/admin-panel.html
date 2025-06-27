@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f9f6f2;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ac8e78;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 32px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Bienvenido al Panel de Administración</h2>
+
+<h3>Contactos Recibidos</h3>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Empresa</th>
+            <th>Mensaje</th>
+            <th>Email</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody id="contacts-table">
+        <!-- Datos cargados aquí -->
+    </tbody>
+</table>
+
+<h3>Cotizaciones Recibidas</h3>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Empresa</th>
+            <th>Productos</th>
+            <th>Fecha</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="quotations-table">
+        <!-- Datos cargados aquí -->
+    </tbody>
+</table>
+
+<a href="logout.php">Cerrar Sesión</a>
+
+<script>
+// Cargar contactos
+fetch('../api/get-contacts.php')
+    .then(res => res.json())
+    .then(data => {
+        const tbody = document.getElementById('contacts-table');
+        data.forEach(contact => {
+            tbody.innerHTML += `
+                <tr>
+                    <td>${contact.id}</td>
+                    <td>${contact.full_name}</td>
+                    <td>${contact.company}</td>
+                    <td>${contact.message}</td>
+                    <td>${contact.email}</td>
+                    <td>${contact.submitted_at}</td>
+                </tr>
+            `;
+        });
+    });
+
+// Cargar cotizaciones
+fetch('../api/get-quotations.php')
+    .then(res => res.json())
+    .then(data => {
+        const tbody = document.getElementById('quotations-table');
+        data.forEach(quotation => {
+            tbody.innerHTML += `
+                <tr>
+                    <td>${quotation.id}</td>
+                    <td>${quotation.company}</td>
+                    <td>${quotation.products}</td>
+                    <td>${quotation.requested_at}</td>
+                    <td>${quotation.status}</td>
+                </tr>
+            `;
+        });
+    });
+</script>
+
+</body>
+</html>
