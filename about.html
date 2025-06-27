@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos | Commodities Solutions</title>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#F97316',   // Naranja principal
+                            light: '#FB923C',    // Naranja claro
+                            dark: '#EA580C'      // Naranja oscuro
+                        },
+                        secondary: {
+                            DEFAULT: '#6B7280',  // Gris medio
+                            light: '#9CA3AF',    // Gris claro
+                            dark: '#4B5563'      // Gris oscuro
+                        },
+                        accent: {
+                            DEFAULT: '#fff',     // Blanco
+                            dark: '#f3f4f6'      // Gris muy claro
+                        },
+                        beige: {
+                            DEFAULT: '#e7dacb',
+                            light: '#f9f6f2'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-sans bg-beige-light min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fas fa-leaf text-primary text-2xl"></i>
+                <span class="text-xl font-bold text-secondary-dark tracking-wide">Centroamérica De Balanceados, S.A.</span>
+            </a>
+            <nav class="space-x-6 hidden md:block">
+                <a href="index.html" class="text-secondary-dark hover:text-primary font-medium transition">Inicio</a>
+                <a href="about.html" class="text-primary font-semibold border-b-2 border-primary pb-1">Quiénes Somos</a>
+                <a href="products.html" class="text-secondary-dark hover:text-primary font-medium transition">Productos</a>
+                <a href="contact.html" class="text-secondary-dark hover:text-primary font-medium transition">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-1 py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-primary mb-4 drop-shadow-sm">Quiénes Somos</h1>
+                <div class="w-24 h-1 bg-primary mx-auto rounded"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-secondary-dark mb-16 bg-accent/80 rounded-xl shadow-lg p-8">
+                <p class="mb-6 text-lg leading-relaxed">
+                    Somos una empresa guatemalteca dedicada a ofrecer soluciones integrales para la industria pecuaria en Centroamérica.
+                </p>
+                <p class="mb-6 text-lg leading-relaxed">
+                    Nos especializamos en materias primas y en la gestión de la cadena de suministros, con un firme compromiso hacia la transparencia y la eficiencia en cada etapa de las negociaciones y el manejo de commodities. Nuestro objetivo es generar propuestas de valor agregado y garantizar la calidad del producto hasta su uso final en la industria.
+                </p>
+                <p class="mb-6 text-lg leading-relaxed">
+                    Contamos con un equipo humano altamente capacitado y con amplia experiencia en el sector. A través de infraestructura especializada y tecnología de última generación, aseguramos trazabilidad, cumplimiento de estándares de origen y entregas puntuales.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Creemos firmemente que la verdad, la honestidad, el trabajo constante y la pasión constituyen los pilares fundamentales para construir relaciones de confianza.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                <div class="bg-accent p-8 rounded-xl shadow-md border border-secondary-light">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bullseye text-primary text-2xl mr-3"></i>
+                        <h2 class="text-2xl font-bold text-secondary-dark">Misión</h2>
+                    </div>
+                    <p class="text-secondary-dark">
+                        Proporcionar soluciones integrales en el comercio de commodities, garantizando calidad, transparencia y eficiencia en toda la cadena de suministro, para contribuir al desarrollo de la industria pecuaria en Centroamérica.
+                    </p>
+                </div>
+                <div class="bg-accent p-8 rounded-xl shadow-md border border-secondary-light">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-eye text-primary text-2xl mr-3"></i>
+                        <h2 class="text-2xl font-bold text-secondary-dark">Visión</h2>
+                    </div>
+                    <p class="text-secondary-dark">
+                        Ser líderes en el mercado centroamericano de commodities, reconocidos por nuestra integridad, calidad de servicio y capacidad de innovación, estableciendo relaciones comerciales a largo plazo basadas en la confianza mutua.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-12 py-8 border-t border-beige-light" style="background-color: #fbbd56;">
+        <div class="container mx-auto px-4 text-center">
+            <a href="index.html" class="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow">
+                Volver a la página principal
+            </a>
+            <p class="mt-6 text-secondary text-sm">&copy; 2025 Centroamérica De Balanceados, S.A. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

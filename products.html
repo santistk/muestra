@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | Commodities Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#F97316',
+                            light: '#FB923C',
+                            dark: '#EA580C'
+                        },
+                        secondary: {
+                            DEFAULT: '#6B7280',
+                            light: '#9CA3AF',
+                            dark: '#4B5563'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header (igual que index.html) -->
+
+    <main class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl font-bold text-primary-dark mb-4">Nuestros Productos</h1>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="bg-gray-100 p-8 rounded-lg">
+                    <h2 class="text-2xl font-bold text-primary-dark mb-4">Materias Primas</h2>
+                    <p class="text-secondary-dark mb-6">
+                        Ofrecemos materias primas de la más alta calidad para la industria pecuaria, garantizando trazabilidad y cumplimiento de estándares internacionales.
+                    </p>
+                    <div class="grid gap-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                            <span>Harina de Soya</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                            <span>Maíz </span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                            <span>Granos de Destilería</span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-8 rounded-lg">
+                    <h2 class="text-2xl font-bold text-primary-dark mb-4">Especificaciones Técnicas</h2>
+                    <p class="text-secondary-dark mb-6">
+                        Todos nuestros productos cumplen con los más altos estándares de calidad y están sujetos a rigurosos controles.
+                    </p>
+                    <div class="grid gap-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-certificate text-primary mt-1 mr-3"></i>
+                            <span>Análisis de laboratorio</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-file-alt text-primary mt-1 mr-3"></i>
+                            <span>Certificados de calidad</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-clipboard-check text-primary mt-1 mr-3"></i>
+                            <span>Documentación completa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="quotes.html" class="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition duration-300">Solicitar Cotización</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (igual que index.html) -->
+
+    <script src="js/main.js"></script>
+</body>
+</html>

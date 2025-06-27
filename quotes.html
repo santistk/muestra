@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizaciones | Commodities Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#F97316',
+                            light: '#FB923C',
+                            dark: '#EA580C'
+                        },
+                        secondary: {
+                            DEFAULT: '#6B7280',
+                            light: '#9CA3AF',
+                            dark: '#4B5563'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .quote-form {
+            max-width: 800px;
+        }
+        .required-field::after {
+            content: '*';
+            color: #EF4444;
+            margin-left: 2px;
+        }
+        .product-item {
+            transition: all 0.3s ease;
+        }
+        .product-item:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header (igual que index.html) -->
+
+    <main class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl font-bold text-primary-dark mb-4">Solicitud de Cotización</h1>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="text-secondary-dark max-w-2xl mx-auto mt-4">
+                    Complete el siguiente formulario y nos pondremos en contacto con usted a la brevedad con una cotización personalizada.
+                </p>
+            </div>
+
+            <div class="quote-form mx-auto">
+                <form id="quoteForm" class="bg-gray-100 p-8 rounded-lg">
+                    <div class="mb-8">
+                        <h2 class="text-xl font-bold text-primary-dark mb-4">Productos de Interés</h2>
+                        
+                        <div class="mb-4">
+                            <label for="product" class="block text-secondary-dark mb-2 required-field">Seleccione un producto</label>
+                            <select id="product" name="product" class="w-full px-4 py-2 border border-gray-300 rounded-lg form-input" required>
+                                <option value="" disabled selected>-- Seleccione --</option>
+                                <option value="Harina de Soya">Harina de Soya</option>
+
+                                <option value="Maíz">Maíz</option>
+                                <option value="Granos de Destilería">Granos de Destilería</option>
+                                
+                                
+                                
+                            </select>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="quantity" class="block text-secondary-dark mb-2 required-field">Cantidad</label>
+                                <input type="number" id="quantity" name="quantity" min="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="unit" class="block text-secondary-dark mb-2 required-field">Unidad de medida</label>
+                                <select id="unit" name="unit" class="w-full px-4 py-2 border border-gray-300 rounded-lg form-input" required>
+                                    <option value="kg">Kilogramos (kg)</option>
+                                    <option value="lb">Libras (lb)</option>
+                                    <option value="ton">Toneladas métricas (ton)</option>
+                                    <option value="custom">Personalizada</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div id="customUnitContainer" class="hidden mt-4">
+                            <label for="customUnit" class="block text-secondary-dark mb-2">Especifique unidad</label>
+                            <input type="text" id="customUnit" name="customUnit" class="w-full px-4 py-2 border border-gray-300 rounded-lg form-input">
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h2 class="text-xl font-bold text-primary-dark mb-4">Información del Cliente</h2>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <label for="firstName" class="block text-secondary-dark mb-2 required-field">Nombre</label>
+                                <input type="text" id="firstName" name="firstName" class="w-full px-4 py-2 border border-gray-300 rounded-lg form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="block text-secondary-dark mb-2 required-field">Apellido</label>
+                                <input type="text" id="lastName" name="lastName" class="w-full px-4 py-2 border border-gray-300 rounded-lg form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-4">
+                            <div class="form-group">
+                                <label for="company" class="block text-secondary-dark mb-2 required-field">Empresa</label>
+                                <input type="text" id="company" name="company" class="w-full px-4 py-2 border border-gray-300 rounded-lg form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="block text-secondary-dark mb-2 required-field">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <div class="form-group">
+                                <label for="phone" class="block text-secondary-dark mb-2">Teléfono</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg form-input">
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <div class="form-group">
+                                <label for="notes" class="block text-secondary-dark mb-2">Notas adicionales</label>
+                                <textarea id="notes" name="notes" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg form-input"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Enviar Solicitud
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (igual que index.html) -->
+
+    <script>
+        // Mostrar/ocultar campo de unidad personalizada
+        document.getElementById('unit').addEventListener('change', function() {
+            const customUnitContainer = document.getElementById('customUnitContainer');
+            if (this.value === 'custom') {
+                customUnitContainer.classList.remove('hidden');
+            } else {
+                customUnitContainer.classList.add('hidden');
+            }
+        });
+        
+        // Validación del formulario de cotización
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validar campos requeridos
+            const requiredFields = ['product', 'quantity', 'unit', 'firstName', 'lastName', 'company', 'email'];
+            let isValid = true;
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    field.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    field.classList.remove('border-red-500');
+                }
+            });
+            
+            // Validar unidad personalizada si está seleccionada
+            if (document.getElementById('unit').value === 'custom' && !document.getElementById('customUnit').value.trim()) {
+                document.getElementById('customUnit').classList.add('border-red-500');
+                isValid = false;
+            } else {
+                document.getElementById('customUnit').classList.remove('border-red-500');
+            }
+            
+            if (isValid) {
+                // Aquí iría la lógica para enviar el formulario
+                alert('Gracias por su solicitud de cotización. Nos pondremos en contacto con usted pronto.');
+                this.reset();
+                document.getElementById('customUnitContainer').classList.add('hidden');
+            } else {
+                alert('Por favor complete todos los campos requeridos.');
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Commodities Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#F97316',
+                            light: '#FB923C',
+                            dark: '#EA580C'
+                        },
+                        secondary: {
+                            DEFAULT: '#6B7280',
+                            light: '#9CA3AF',
+                            dark: '#4B5563'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .contact-form {
+            max-width: 600px;
+        }
+        .form-input:focus {
+            border-color: #F97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+        }
+        .required-field::after {
+            content: '*';
+            color: #EF4444;
+            margin-left: 2px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header (igual que index.html) -->
+
+    <main class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl font-bold text-primary-dark mb-4">Contáctanos</h1>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="text-secondary-dark max-w-2xl mx-auto mt-4">
+                    Estamos para servirle. Complete el formulario y nuestro equipo se comunicará con usted a la brevedad.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="contact-form mx-auto bg-gray-100 p-8 rounded-lg">
+                    <!-- Reemplaza el formulario actual por el formulario mejorado -->
+                    <div class="form-container mx-auto">
+                        <h2 class="text-xl font-bold text-primary-dark mb-6">Contáctanos</h2>
+                        <form action="/submit-contact" method="POST" id="formulario-contacto">
+                            <div class="form-group">
+                                <label for="name" class="form-label block text-secondary-dark mb-2 required-field">Nombre y Apellido</label>
+                                <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company" class="form-label block text-secondary-dark mb-2 required-field">Nombre de la Empresa</label>
+                                <input type="text" id="company" name="company" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div class="form-group">
+                                    <label for="email" class="form-label block text-secondary-dark mb-2 required-field">Correo Electrónico</label>
+                                    <input type="email" id="email" name="email" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="form-label block text-secondary-dark mb-2">Número de Teléfono</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <div class="form-group">
+                                    <label for="message" class="form-label block text-secondary-dark mb-2 required-field">Mensaje</label>
+                                    <textarea id="message" name="message" rows="5" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" required></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-8">
+                                <button type="submit" class="btn-submit bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                                    Enviar Mensaje
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="md:w-1/3">
+                    <div class="bg-gray-100 p-8 rounded-lg">
+                        <h2 class="text-xl font-bold text-primary-dark mb-6">Información de Contacto</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-primary mt-1 mr-4"></i>
+                                <span>Km 84, Autopista a Puerto Quetzal, Masagua, Escuintla, Escuintla 05005, GT</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-primary mr-4"></i>
+                                <span>+502 4272 2636</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-primary mr-4"></i>
+                                <span>info@commodities.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-primary mr-4"></i>
+                                <span>Lunes a Viernes: 8:00 - 17:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (igual que index.html) -->
+
+    <script>
+        // Validación del formulario de contacto
+        document.getElementById('formulario-contacto').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validar campos requeridos
+            const requiredFields = ['name', 'company', 'email', 'message'];
+            let isValid = true;
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    field.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    field.classList.remove('border-red-500');
+                }
+            });
+            
+            if (isValid) {
+                // Aquí iría la lógica para enviar el formulario
+                alert('Gracias por su mensaje. Nos pondremos en contacto con usted pronto.');
+                this.reset();
+            } else {
+                alert('Por favor complete todos los campos requeridos.');
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
