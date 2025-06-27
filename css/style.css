@@ -1,0 +1,286 @@
+/* Variables personalizadas */
+:root {
+    --color-primary: #F97316;
+    --color-primary-light: #FB923C;
+    --color-primary-dark: #EA580C;
+    --color-secondary: #6B7280;
+    --color-secondary-light: #9CA3AF;
+    --color-secondary-dark: #4B5563;
+    --color-accent: #fff;
+    --color-accent-dark: #f3f4f6;
+    --color-beige: #e7dacb;
+    --color-beige-light: #f9f6f2;
+    --color-input-bg: #fbf8f5;
+    --color-label: #7a5c3e;
+}
+
+/* Base */
+body {
+    font-family: 'Myriad', sans-serif;
+    line-height: 1.6;
+    color: var(--color-secondary-dark);
+    background: linear-gradient(135deg, var(--color-beige-light) 0%, var(--color-beige) 100%);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
+.main-header {
+    background-color: var(--color-accent);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Hero */
+.hero {
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-submit:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.btn,
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-secondary-light);
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+    background-color: var(--color-input-bg);
+    border-color: var(--color-beige);
+    color: var(--color-secondary-dark);
+}
+
+.form-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.13);
+}
+
+/* Fondo translúcido para páginas de formularios */
+.form-bg {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        rgba(249, 115, 22, 0.08) 0%,     /* Naranja suave */
+        rgba(150, 150, 150, 0.05) 100%  /* Gris claro suave */
+    );
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Formularios destacados */
+.contact-form,
+.quote-form {
+    width: 100%;
+    max-width: 480px;
+    padding: 2rem;
+    background-color: #ffffffcc;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    color: var(--color-secondary-dark);
+    font-family: 'Roboto', sans-serif;
+    z-index: 10;
+    position: relative;
+}
+
+.contact-form h2,
+.quote-form h2 {
+    margin-top: 0;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Inputs y etiquetas */
+.contact-form label,
+.quote-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-label);
+}
+
+.contact-form .form-input,
+.quote-form .form-input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-secondary-light);
+    border-radius: 0.375rem;
+    background-color: #fafafa;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    color: var(--color-secondary-dark);
+}
+
+.contact-form .form-input:focus,
+.quote-form .form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: #fff;
+}
+
+/* Botón submit */
+.contact-form button[type="submit"],
+.quote-form button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button[type="submit"]:hover,
+.quote-form button[type="submit"]:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* === Formulario mejorado === */
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px 25px;
+    background-color: var(--color-accent);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-label);
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-secondary-light);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+    color: var(--color-secondary-dark);
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* Carrusel sin botones */
+.carousel {
+    display: flex;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    animation: slide 15s infinite;
+}
+
+.carousel img {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    16% { transform: translateX(0); }
+    20% { transform: translateX(-100%); }
+    36% { transform: translateX(-100%); }
+    40% { transform: translateX(-200%); }
+    56% { transform: translateX(-200%); }
+    60% { transform: translateX(-300%); }
+    76% { transform: translateX(-300%); }
+    80% { transform: translateX(-400%); }
+    100% { transform: translateX(-400%); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        height: 400px;
+    }
+}
